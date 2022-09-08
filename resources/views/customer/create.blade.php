@@ -1,40 +1,31 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <!-- Styles -->
-    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-    @include('layouts.inc.admin-navbar')
-    <div id="layoutSidenav">
-    @include('layouts.inc.admin-sidebar')
-    <div id="layoutSidenav_content">
-         <main>
-       
-         </main>
-         @include('layouts.inc.admin-footer')
+@section('content')
+<div class="space-sidebar">
+<div class="box box-success">
+    <div class="box-header">
+        <h3 class="box-title">Customer List</h3>
     </div>
+    <div class="box-body">
+      
+        <form class="px-3" action="" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <div class="form-input">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id=""
+                    value="" placeholder="Enter Here Name"> 
+            </div>
+            </div>
+            <div class="form-group">
+                 <label>Email</label>
+                 <div class="form-input">
+                 <input class="input-control" name="file" type="file" id="" data-validation="required">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
     </div>
-
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" ></script>
-<script src="{{ asset('assets/js/script.js') }}" ></script>
-</body>
-</html>
-
- 
- 
+</div>
+</div>
+@endsection

@@ -27,6 +27,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     //Customer route
     Route::get('customers',[App\Http\Controllers\Admin\CustomerController::class,'index']);
+    Route::get('customers/create',[App\Http\Controllers\Admin\CustomerController::class,'create']);
+
    
 });
 
