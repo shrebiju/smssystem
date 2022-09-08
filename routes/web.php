@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Sms\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
+
+    //Customer route
+    Route::get('customers',[App\Http\Controllers\Admin\CustomerController::class,'index']);
+   
 });
+
+
+
+   
+   
+
