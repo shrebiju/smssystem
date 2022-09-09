@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="container-fluid px-4">
    <div class="card mt-4">
    <div class="card-header">
-    <h4 class=""> Customer List</h4>
+    <h4 class=""> Registration List</h4>
    </div>
    <div class="card-body">
     <div class="box-body px-4">
@@ -15,13 +16,10 @@
                         <th>SN</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>Message</th>
-                        <th class="dt-center">Actions</th>
                     </tr>
                     </thead>
                     <tbody id="tablebody">
-                    @foreach($data as $index=>$customerlist)
+                    @foreach($user as $index=>$customerlist)
                                 <tr class="gradeX" id="">
                                     <td class="index">
                                         {{ ++$index }}
@@ -32,23 +30,6 @@
                                     <td class="attachment">
                                         {{ $customerlist->email }}
                                     </td>
-                                    <td class="attachment">
-                                        {{ $customerlist->phone_number }}
-                                    </td>
-                                    <td class="attachment">
-                                        {{ $customerlist->description }}
-                                    </td>
-                                    <td class="justify-content-center d-flex p-2">
-                                            <a href="javascript:;" title="Delete" class="delete-link" id="">
-                                    <button type="button" class="btn btn-danger btn-flat">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </a>    &nbsp&nbsp   
-                                        &nbsp&nbsp  
-                                     <a href="" id="">
-                                    <button type="button" class="btn btn-primary btn-flat">
-                                        <i class="fa fa-eye"></i>
-                                    </button>
                                 </a>
                                 </td> 
                                 </tr>

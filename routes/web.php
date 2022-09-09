@@ -23,11 +23,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
-    Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
-
+    Route::get('/dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
     //Customer route
-    Route::get('customers',[App\Http\Controllers\Admin\CustomerController::class,'index']);
+    Route::get('customers',[App\Http\Controllers\Admin\CustomerController::class,'index'])->name('customer.index');
     Route::get('customers/create',[App\Http\Controllers\Admin\CustomerController::class,'create']);
+    Route::post('customers/store',[App\Http\Controllers\Admin\CustomerController::class,'store'])->name('customer.store');
+    Route::get('user',[App\Http\Controllers\Admin\CustomerController::class,'user'])->name('user.list');
+
+    
+
 
    
 });

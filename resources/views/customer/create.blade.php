@@ -1,31 +1,37 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="space-sidebar">
-<div class="box box-success">
-    <div class="box-header">
-        <h3 class="box-title">Customer List</h3>
+
+<div class="container-fluid px-4">
+   <div class="card mt-4">
+   <div class="card-header">
+    <h4 class="">Add Category</h4>
+   </div>
+   <div class="card-body">
+    <form action="{{ route('customer.store') }}" method="POST"  enctype="multipart/form-data">
+  
+        @csrf
+        <div class="mb-3">
+            <label for="">Category Name</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="">Email </label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="">Contact Number </label>
+            <input type="phone_number" name="phone_number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="">Send Message </label>
+            <textarea name="description" row="5" class="form-control"></textarea>
+        </div>
+        <div class="col-md-6">
+        <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+   </div>
     </div>
-    <div class="box-body">
-      
-        <form class="px-3" action="" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="Name">Name</label>
-                <div class="form-input">
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id=""
-                    value="" placeholder="Enter Here Name"> 
-            </div>
-            </div>
-            <div class="form-group">
-                 <label>Email</label>
-                 <div class="form-input">
-                 <input class="input-control" name="file" type="file" id="" data-validation="required">
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-    </div>
-</div>
 </div>
 @endsection

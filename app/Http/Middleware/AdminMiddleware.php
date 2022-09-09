@@ -22,7 +22,8 @@ class AdminMiddleware
             if(Auth::user()->role_as == '1'){
                 return $next($request);
             }else{
-                return redirect('/home')->with('status','Access Denied? As you are not allowed');
+                return $next($request);
+                // return redirect('/home')->with('status','Access Denied? As you are not allowed');
             }
         }
         else
