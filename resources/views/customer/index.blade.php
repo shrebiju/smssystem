@@ -39,13 +39,14 @@
                                         {{ $customerlist->description }}
                                     </td>
                                     <td class="justify-content-center d-flex p-2">
-                                            <a href="javascript:;" title="Delete" class="delete-link" id="">
-                                    <button type="button" class="btn btn-danger btn-flat">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </a>    &nbsp&nbsp   
+                                    <form action="{{ route('customer.destroy', $customerlist->id)}}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <input class="btn btn-danger" type="submit" value="Delete" />
+                                    </form>
+                                            </a>    &nbsp&nbsp   
                                         &nbsp&nbsp  
-                                     <a href="" id="">
+                                     <a href="{{route('customer.edit',$customerlist->id)}}" id="">
                                     <button type="button" class="btn btn-primary btn-flat">
                                         <i class="fa fa-eye"></i>
                                     </button>

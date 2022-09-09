@@ -19,16 +19,16 @@
                     </tr>
                     </thead>
                     <tbody id="tablebody">
-                    @foreach($user as $index=>$customerlist)
+                    @foreach($user as $index=>$userlist)
                                 <tr class="gradeX" id="">
                                     <td class="index">
                                         {{ ++$index }}
                                     </td>
                                     <td class="title">
-                                        {{ $customerlist->name }}
+                                        {{ $userlist->name }}
                                     </td>
                                     <td class="attachment">
-                                        {{ $customerlist->email }}
+                                        {{ $userlist->email }}
                                     </td>
                                 </a>
                                 </td> 

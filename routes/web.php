@@ -28,12 +28,11 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('customers',[App\Http\Controllers\Admin\CustomerController::class,'index'])->name('customer.index');
     Route::get('customers/create',[App\Http\Controllers\Admin\CustomerController::class,'create']);
     Route::post('customers/store',[App\Http\Controllers\Admin\CustomerController::class,'store'])->name('customer.store');
+    Route::get('customers/edit/{id}',[App\Http\Controllers\Admin\CustomerController::class,'edit'])->name('customer.edit');
+    Route::post('customers/update/{id}',[App\Http\Controllers\Admin\CustomerController::class,'update'])->name('customer.update');
+    Route::delete('destroy/{id}',[App\Http\Controllers\Admin\CustomerController::class,'destroy'])->name('customer.destroy');
+    // User Fetch Data
     Route::get('user',[App\Http\Controllers\Admin\CustomerController::class,'user'])->name('user.list');
-
-    
-
-
-   
 });
 
 
